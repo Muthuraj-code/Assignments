@@ -1,0 +1,99 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="card ">
+        <div class="card-body">
+          <div class="form-group">
+            <form class="" action="index.html" method="post">
+              <input type="checkbox" name="Technology" value="">
+              <label for="">Technology</label>
+              <br>
+              <input type="checkbox" name="Marketing" value="">
+              <label for="">Marketing</label>
+              <br>
+              <input type="checkbox" name="B2B" value="">
+              <label for="">B2B</label>
+
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-10">
+      <div class="card ">
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <%  images.forEach(function(image){ %>
+
+              <div class="note col-lg-4">
+                <form action="/downloadImage" method="post">
+                  <input type="hidden" name="imagePath" value=<%=image.imagePath%>>
+                  <input type="hidden" name="user_id" value=<%=image.id%>>
+                  <button type="submit" class="buttons border-0 bg-transparent">
+                    <img class="note" src="/uploads/<%=image.imagePath%>" alt="">
+                  </button>
+
+
+                </form>
+
+                <p> Contributor: <%=image.name%></p>
+                <p> Total Download: <%=image.downloadCount%></p>
+              </div>
+              <%});%>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div>
+    <div class=<%=success?"bg-model":"bg-model1"%>>
+      <div class="model-content">
+        <a class="close" href="/normal_user">+</a>
+        <%  dimgs.forEach(function(dimg){ %>
+      <img class="image" src="/uploads/<%=dimg.imagePath%>" alt="">
+      <label class="labels">Contributor: <%=dimg.name%></label>
+        <label class="labels">Image Name: <%=dimg.imageName%></label>
+        <label class="labels">Total Download: <%=dimg.downloadCount%></label>
+        <form action="/downloads" method="post">
+          <input type="hidden" name="imagePath" value=<%=dimg.imagePath%>>
+          <input type="hidden" name="user_id" value=<%=dimg.id%>>
+          <button type="submit" class="btn btn-warning"><a href="/uploads/<%=dimg.imagePath%>" download="filename.png"></a>Download</button>
+            </form>
+
+
+        <%})%>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<%- include('partials/footer') %>

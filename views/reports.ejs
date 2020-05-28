@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card ">
+        <div class="card-body">
+          <a href="/contributor">Upload image</a>
+          <br>
+          <hr>
+          <a href="#">Download report</a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card ">
+        <div class="card-body">
+          <% results.forEach(function(result){%>
+          <div class="d-flex flex-row bd-highlight md-3">
+
+            <div class="p-2 bd-highlight border box ">
+              <p>Image Name</p>
+              <hr>
+            <p><%=result.imageName%></p>
+            </div>
+            <div class="p-2 bd-highlight border box">
+              <p>Category</p>
+              <hr>
+              <p><%=result.category%></p>
+            </div>
+            <div class="p-2 bd-highlight border box ">
+              <p>Download Count</p>
+              <hr>
+            <p><%=result.downloadCount%></p>
+            </div>
+
+          </div>
+          <%})%>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%- include('partials/footer') %>
