@@ -1,5 +1,5 @@
 # Assignments
-assignments Techstack used: HTML, CSS, ejs, node js and express for backend, DB mysql.
+assignments Techstack used: HTML, CSS, ejs, node js and express for backend, DB mysql (imagestorage.sql).
 
 Created a page which allows the user to sign up or Sign In and store the user and and encypted password in tha data base. 
 Contributor page will accept the images from the user and stores the images in the server. 
